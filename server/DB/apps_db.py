@@ -225,7 +225,6 @@ class AppsDatabase:
     ) -> List[dict]:
         try:
             async with AsyncSessionLocal() as session:
-                # 🔥 ПРОСТОЙ ЗАПРОС: получаем ВСЕ приложения
                 query = select(apps_table)
                 result = await session.execute(query)
                 all_apps = result.fetchall()
@@ -233,33 +232,26 @@ class AppsDatabase:
                 print(f"🔍 Всего приложений в БД: {len(all_apps)}")
                 print(f"🎯 Ищем по тегам: {tags}")
                 
-                # 🔥 ФИЛЬТРАЦИЯ И СОРТИРОВКА В ПАМЯТИ (надежнее!)
                 filtered_apps = []
                 
                 for app_row in all_apps:
                     app_tags = app_row.tags or []
                     print(f"📱 {app_row.name}: теги {app_tags}")
                     
-                    # Считаем релевантность по тегам
                     relevance_score = 0
                     if tags:
-                        # 🔥 Считаем сколько тегов совпало
                         relevance_score = len(set(app_tags) & set(tags))
                         print(f"   ➡ Совпадений: {relevance_score}")
                     
-                    # 🔥 Добавляем ВСЕ приложения, но с разной релевантностью
                     filtered_apps.append({
                         'app': app_row,
                         'relevance_score': relevance_score
                     })
                 
-                # 🔥 СОРТИРУЕМ по релевантности (сначала те, у кого больше совпадений)
                 filtered_apps.sort(key=lambda x: x['relevance_score'], reverse=True)
                 
-                # 🔥 БЕРЕМ ТОП-N самых релевантных
                 top_apps = filtered_apps[:limit]
                 
-                # 🔥 ФОРМАТИРУЕМ РЕЗУЛЬТАТ
                 apps_list = []
                 for item in top_apps:
                     app_row = item['app']
