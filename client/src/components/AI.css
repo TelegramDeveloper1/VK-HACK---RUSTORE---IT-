@@ -1,0 +1,241 @@
+/* Основные стили */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* 🔍 Поисковая строка */
+.search-container {
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.search-button {
+  padding: 15px 25px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.search-button:hover:not(:disabled) {
+  background: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.search-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* 📱 Контейнер приложений */
+.apps-container {
+  min-height: 400px;
+}
+
+.loading, .no-results, .welcome {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.results-info {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 🎴 Сетка приложений */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Карточка приложения */
+.app-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.app-card.highlighted {
+  border: 2px solid #ffd93d;
+  background: linear-gradient(135deg, #fff9e6, #ffffff);
+}
+
+/* 🏆 Бейдж релевантности */
+.relevance-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #ffd93d, #ff9a3d);
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* 🖼️ Изображение */
+.app-image-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.app-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 📝 Информация */
+.app-info {
+  text-align: center;
+}
+
+.app-name {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.app-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.category {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.age-rating {
+  background: #e9ecef;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* 🏷️ Теги */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.tag {
+  background: #f8f9fa;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #666;
+  border: 1px solid #e9ecef;
+}
+
+.tag.relevant-tag {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+  font-weight: 600;
+}
+
+/* 📊 Статистика релевантности */
+.relevance-stats {
+  margin-top: 10px;
+}
+
+.score-bar {
+  background: #e9ecef;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.score-fill {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.score-text {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+  
+  .search-box {
+    flex-direction: column;
+  }
+  
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .app-card {
+    padding: 15px;
+  }
+}

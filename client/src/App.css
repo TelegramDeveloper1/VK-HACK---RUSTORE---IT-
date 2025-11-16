@@ -1,0 +1,626 @@
+/* ===================== GLOBAL ===================== */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: #f7f7f9;
+  color: #222;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Buttons */
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: white;
+}
+
+.btn.primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.btn.liked {
+  background: #e11d48;
+  color: white;
+}
+
+/* ===================== HEADER ===================== */
+
+.header {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Search */
+
+.searchBox {
+  width: 100%;
+}
+
+.searchBox input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+/* Navigation */
+
+.navButtons {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.navBtn {
+  padding: 8px 12px;
+  background: #ececec;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  transition: background 0.2s;
+}
+
+.navBtn:hover {
+  background: #dcdcdc;
+}
+
+.onboardBtn {
+  padding: 8px 12px;
+  background: #ececec;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  transition: background 0.2s;
+  border: none;
+}
+
+.navBtn:hover,
+.onboardBtn:hover {
+  background: #dcdcdc;
+}
+
+/* ===================== APP GRID ===================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardTop {
+  display: flex;
+  gap: 12px;
+}
+
+.iconImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+.desc {
+  margin: 10px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.cardBottom,
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* ===================== DETAIL PAGE ===================== */
+
+.detail {
+  padding: 16px;
+}
+
+.backBtnPretty {
+  background: #ececec;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.backBtnPretty:hover {
+  background: #dcdcdc;
+}
+
+.detailTop {
+  display: flex;
+  gap: 16px;
+}
+
+.bigIcon {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.detailMeta h2 {
+  margin: 0 0 4px 0;
+}
+
+.descFull {
+  margin: 10px 0;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Screenshots */
+
+.screensRowHorizontal {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  padding-bottom: 10px;
+}
+
+.screensRowHorizontal::-webkit-scrollbar {
+  height: 6px;
+}
+
+.screensRowHorizontal::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.screenshot {
+  width: 160px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+}
+
+/* Similar / History */
+
+.recommend {
+  margin-top: 30px;
+}
+
+.smallGrid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.smallCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.smallIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ===================== GALLERY ===================== */
+
+.galleryOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeBg 0.3s ease;
+}
+
+.galleryContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.galleryImage {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.galleryBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.galleryBtn:hover {
+  background: white;
+}
+
+.galleryBtn.left {
+  left: -60px;
+}
+
+.galleryBtn.right {
+  right: -60px;
+}
+
+.galleryClose {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Gallery animations */
+
+.animated {
+  transition: all 0.25s ease;
+}
+
+.galleryIn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.galleryOut {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.gallerySlideLeft {
+  transform: translateX(-40px);
+  opacity: 0;
+}
+
+.gallerySlideRight {
+  transform: translateX(40px);
+  opacity: 0;
+}
+
+@keyframes fadeBg {
+  from { background: rgba(0,0,0,0); }
+  to   { background: rgba(0,0,0,0.85); }
+}
+
+/* ===================== ONBOARDING ===================== */
+
+.onboard-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 18px;
+}
+
+.onboard-card {
+  width: 360px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.25);
+}
+
+.onboard-logo {
+  width: 64px;
+  height: 64px;
+}
+
+.onboard-title {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.onboard-text {
+  margin: 8px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.onboard-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.onboard-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.onboard-btn.primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.onboard-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e6e6e6;
+}
+
+.dot.active {
+  background: #4f46e5;
+}
+
+.onboard-skip {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Highlight for onboarding */
+
+.onboard-highlight {
+  position: relative;
+  z-index: 1300 !important;
+  box-shadow: 0 10px 40px rgba(79,70,229,0.28);
+  border-radius: 12px;
+  outline: 3px solid rgba(79,70,229,0.12);
+  transition: box-shadow .18s ease, transform .18s ease;
+}
+
+/* ===================== CATEGORIES ===================== */
+
+.categoryList {
+  padding: 16px;
+}
+
+.pageTitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryItem {
+  display: block;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.categoryItem:hover {
+  background: #f2f2ff;
+  transform: translateX(4px);
+}
+
+/* ===================== PAGE ANIMATION ===================== */
+
+.pageFade {
+  animation: pageFadeIn 0.35s ease;
+}
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================== SHARE ===================== */
+
+.shareOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4000;
+}
+
+.shareModal {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  position: relative;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  animation: pageFadeIn 0.3s ease;
+}
+
+.shareClose {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.shareCard {
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 14px;
+}
+
+.shareIcon {
+  width: 74px;
+  height: 74px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.shareTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.shareDev {
+  font-size: 14px;
+  color: #555;
+}
+
+.shareDesc {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.shareActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.shareBtn {
+  padding: 10px 14px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.shareBtn:hover {
+  background: #4338ca;
+}
+
+.shareOpenBtn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 600px) {
+  .headerRow {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .navButtons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+}
