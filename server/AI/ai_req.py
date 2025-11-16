@@ -84,7 +84,6 @@ def clean_ai_response(ai_response: str) -> dict:
         # Парсим JSON
         data = json.loads(cleaned)
         
-        # Извлекаем только нужные поля для поиска в БД
         search_params = {
             'category': data.get('type', ''),
             'tags': data.get('tags', []),
@@ -95,7 +94,6 @@ def clean_ai_response(ai_response: str) -> dict:
         
     except json.JSONDecodeError as e:
         print(f"❌ Ошибка парсинга JSON: {e}")
-        # Если не удалось распарсить, возвращаем значения по умолчанию
         return {
             'category': '',
             'tags': [],
